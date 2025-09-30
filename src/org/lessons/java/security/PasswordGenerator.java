@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class PasswordGenerator {
+
+
     public static void main(String[] args) {
         // - Salvare in opportune variabili il nome, cognome, colore preferito e data di nascita di un utente suddivisa in giorno, mese e anno in numero
         // - Generare (e stampare a video) una password concatenando nome, cognome, colore preferito e somma di giorno, mese e anno di nascita, separate dal carattere -
@@ -26,7 +28,7 @@ public class PasswordGenerator {
 
         Scanner inputCognome = new Scanner(System.in);
 
-        String cognome = capitalize(inputCognome.nextLine());
+        String cognome = inputCognome.nextLine();
         
 
 
@@ -59,8 +61,13 @@ public class PasswordGenerator {
 
 
         System.out.println("Tu ti chiami: " + nome + " " + cognome);
-        System.out.println("il tuo colore preferito è: " + colore);
+        System.out.println("il tuo colore preferito è: " + colore.toLowerCase());
         System.out.println("Sei nato il : " + data);
 
+        int dateResult = day + month + year;
+        String password = nome + "-" + cognome + "-" + colore.toLowerCase() + "-" + dateResult;
+
+        System.out.println("Quindi la tua password sarà: " + password);
+    
     }
 }
